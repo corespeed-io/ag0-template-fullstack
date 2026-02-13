@@ -1,11 +1,14 @@
 import type { MiddlewareHandler } from "hono";
-import { proxy } from "hono/proxy";
+import { proxy as honoProxy } from "hono/proxy";
 
 /**
  * Reverse proxy middleware that forwards HTTP requests and WebSocket
  * connections to an upstream origin.
+ *
+ * The built-in `hono/proxy` does not support WebSocket upgrades,
+ * so this middleware handles them manually.
  */
-export function proxyMiddleware(origin: string): MiddlewareHandler {
+export function proxy(origin: string): MiddlewareHandler {
   const base = new URL(origin);
   // Strip trailing slash to avoid double slashes when joining with target.pathname
   const basePath = base.pathname.replace(/\/$/, "");
@@ -33,6 +36,6 @@ export function proxyMiddleware(origin: string): MiddlewareHandler {
     }
 
     // HTTP proxy
-    return await proxy(target.href, { raw: c.req.raw });
+    return await honoProxy(target.href, { raw: c.req.raw });
   };
 }
