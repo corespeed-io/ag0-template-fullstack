@@ -13,7 +13,7 @@ RUN pnpm build
 # ================================
 # Stage 2 — Production runtime
 # ================================
-FROM denoland/deno
+FROM denoland/deno:2.6.9
 WORKDIR /app
 # Cache Deno deps before copying source for better layer caching
 COPY deno.json deno.lock ./
