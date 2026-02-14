@@ -70,7 +70,7 @@ function ChatUI() {
   return (
     <div className="flex flex-col h-screen">
       <header className="flex items-center justify-between border-b px-4 py-3">
-        <h1 className="font-semibold text-lg">Zypher Agent</h1>
+        <h1 className="font-semibold text-lg">Your first AI Agent</h1>
         <Button
           variant="ghost"
           size="icon-sm"
