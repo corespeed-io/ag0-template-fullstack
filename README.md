@@ -26,8 +26,11 @@ Dockerfile      Production build
 # Install frontend dependencies
 cd web && pnpm install && cd ..
 
-# Start dev server (backend + frontend)
+# Start backend
 deno task dev
+
+# Start frontend (in another terminal)
+cd web && pnpm dev
 ```
 
 The app runs at `http://localhost:8080`.
