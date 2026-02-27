@@ -1,0 +1,33 @@
+{
+	"tasks": {
+		"dev": "deno run --allow-net --allow-env --allow-read --watch src/main.ts",
+		"start": "deno run --allow-net --allow-env --allow-read src/main.ts",
+		"db:generate": "npx drizzle-kit generate",
+		"db:migrate": "npx drizzle-kit migrate",
+		"db:push": "npx drizzle-kit push",
+		"db:studio": "npx drizzle-kit studio",
+		"fmt": "deno fmt",
+		"lint": "deno lint",
+		"check": "deno check src/main.ts"
+	},
+	"imports": {
+		"hono": "npm:hono@^4",
+		"hono/cors": "npm:hono@^4/cors",
+		"hono/cookie": "npm:hono@^4/cookie",
+		"drizzle-orm": "npm:drizzle-orm@^0.45",
+		"drizzle-orm/": "npm:drizzle-orm@^0.45/",
+		"postgres": "npm:postgres@^3.4",
+		"jose": "npm:jose@^6",
+		"arctic": "npm:arctic@^3.7",
+		"@aws-sdk/client-s3": "npm:@aws-sdk/client-s3@^3",
+		"@aws-sdk/s3-request-presigner": "npm:@aws-sdk/s3-request-presigner@^3"
+	},
+	"compilerOptions": {
+		"strict": true,
+		"noUncheckedIndexedAccess": true
+	},
+	"fmt": {
+		"useTabs": true,
+		"singleQuote": false
+	}
+}
